@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import VehiculoForm from "./components/VehiculoForm";
+// import { Navbar } from "./components/Navbar";
+// import { VehiculosList } from "./components/VehiculosList";
+import { InsumosPage } from "./pages/InsumosPage";
+import { HomePage } from "./pages/HomePage";
+import { BarraNav } from "./components/BarraNav";
+//Redux
+import { Provider } from "react-redux";
+import { store } from "./app/store";
 
-function App() {
+export function App() {
+  //const vehiculosState = useSelector((state) => state.vehiculos);
+  //console.log(vehiculosState);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Provider store={store}>
+        <BrowserRouter>
+          <BarraNav />
+          {/* <Navbar /> */}
+
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/insumos" element={<InsumosPage />} />
+            <Route path="/create-vehiculo" element={<VehiculoForm />} />
+            <Route path="/edit-vehiculo/:id" element={<VehiculoForm />} />
+          </Routes>
+        </BrowserRouter>
+      </Provider>
+    </>
   );
 }
-
-export default App;
