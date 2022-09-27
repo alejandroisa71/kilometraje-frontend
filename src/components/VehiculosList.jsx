@@ -38,14 +38,14 @@ export function VehiculosList() {
           </div>
         </div>
         <div className="row">
-          {vehiculos.map((vehiculo) => (
-            <Card className="m-3" style={{ width: "18rem" }} key={vehiculo.id}>
+          {vehiculos.map((vehiculo, index) => (
+            <Card className="m-3" style={{ width: "18rem" }} key={index}>
               {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
               <Card.Body>
                 <Card.Title>{vehiculo.patente}</Card.Title>
                 <Card.Text>{vehiculo.modelo}</Card.Text>
                 <Stack direction="horizontal" gap={3}>
-                  <Link to="/jkdfw" className="btn btn-primary btn-xs ">
+                  <Link to={`/movimientos/${vehiculo.id}`} className="btn btn-primary btn-xs ">
                     Mas...
                   </Link>
                   <Link

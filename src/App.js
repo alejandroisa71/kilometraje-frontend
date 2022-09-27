@@ -8,6 +8,7 @@ import { BarraNav } from "./components/BarraNav";
 //Redux
 import { Provider } from "react-redux";
 import { store } from "./app/store";
+import { Movimientos } from "./components/Movimientos";
 
 export function App() {
   //const vehiculosState = useSelector((state) => state.vehiculos);
@@ -25,6 +26,7 @@ export function App() {
             <Route path="/insumos" element={<InsumosPage />} />
             <Route path="/create-vehiculo" element={<VehiculoForm />} />
             <Route path="/edit-vehiculo/:id" element={<VehiculoForm />} />
+            <Route path="/movimientos/:id" element={<Movimientos/>} />
           </Routes>
         </BrowserRouter>
       </Provider>
