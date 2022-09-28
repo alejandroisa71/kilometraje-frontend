@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const URI = " http://localhost:9000/api";
+const URI = " http://localhost:9000/api/vehiculos";
 
 export const vehiculoSlice = createSlice({
   name: "vehiculos",
@@ -53,6 +53,7 @@ export const fetchOneVehiculo = (data) => async (dispatch) => {
   try {
     const response = await axios.get(`${URI}/${data}`);
     dispatch(setVehiculoList(response.data));
+    console.log(response);
   } catch (err) {
     throw new Error(err);
   }
